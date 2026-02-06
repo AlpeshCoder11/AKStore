@@ -5,6 +5,7 @@ async function fetchProducts() {
         const response = await fetch('https://fakestoreapi.com/products');
         allProducts = await response.json(); 
         displayProducts(allProducts); 
+        selectElement(allProducts);
     } catch (error) {
         console.error("Fetch error:", error);
     }
@@ -30,6 +31,26 @@ function displayProducts(products) {
         productContainer.appendChild(card);
     });
 }
+const select = document.querySelector('.search-select');
+function selectElement(products) {
+
+
+    select.innerHTML = '<option value="">All Categories</option>';   
+
+    let categories = [];
+
+    products.forEach(product => {
+        if (product.category && !categories.includes(product.category)) {
+            categories.push(product.category);
+
+            const option = document.createElement('option');   
+            option.value = product.category;
+            option.textContent = product.category;
+
+            select.appendChild(option);
+        }
+    });
+}
 
 const searchInput = document.querySelector('.search-input');
 const searchButton = document.querySelector('.search-button');
@@ -50,5 +71,15 @@ function doSearch() {
 searchButton.addEventListener('click', doSearch);
 searchInput.addEventListener('keypress', (e) => {
     if (e.key === 'Enter') doSearch();
+});
+select.addEventListener('change', () => {
+    const value = select.value;
+
+    if(value === ""){
+        displayProducts(allProducts);
+    } else {
+        const filtered = allProducts.filter(p => p.category === value);
+        displayProducts(filtered);
+    }
 });
 fetchProducts();
