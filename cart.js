@@ -1,5 +1,8 @@
 
-let cartItems = [];
+import { saveCartToFirebase, cartItems, setUpdateDelegate } from "./cart_db.js";
+import { allProducts } from "./script.js";
+import { auth } from "./firebase.js";
+setUpdateDelegate(displayCartProducts);
 
 const productContainer = document.querySelector(".main");
 
@@ -12,9 +15,15 @@ productContainer.addEventListener("click", (event) => {
         const productToAdd = allProducts.find(p => p.title === productName);
 
         if (productToAdd) {
+
+            if (!auth.currentUser) {
+                alert("Login first to add cart");
+                return;
+            }
+
             cartItems.push(productToAdd);
-            console.log("Added to cart:", productToAdd.title);
-            displayCartProducts(); 
+            saveCartToFirebase(cartItems);
+            displayCartProducts();
         }
     }
 });
@@ -27,13 +36,15 @@ cartBtn.addEventListener("click", () => {
 });
 
 
-function removeFromCart(index) {
-    cartItems.splice(index, 1);
-    displayCartProducts();
+window.removeFromCart = function(index) {
+    cartItems.splice(index, 1); 
+    saveCartToFirebase(cartItems); 
+    displayCartProducts(); 
 }
 
 function displayCartProducts() {
     const cartContainer = document.querySelector('.cartbar');
+ 
     
   
     cartContainer.innerHTML = `
@@ -48,6 +59,7 @@ function displayCartProducts() {
     }
 
     cartItems.forEach((product, index) => {
+           console.log("i am ac");
         const item = document.createElement('div');
         item.classList.add('cart-item'); 
         item.innerHTML = `

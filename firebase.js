@@ -1,7 +1,7 @@
 
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 
-import { getFirestore, collection, addDoc, query, where, onSnapshot, deleteDoc, doc,getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, query, where,setDoc, onSnapshot, deleteDoc, doc,getDocs, getDoc,updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
   const firebaseConfig = {
@@ -14,31 +14,27 @@ import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChang
   };
 
 
-// ... Keep the rest of your code the same (const firebaseConfig = ...)
-  // Your web app's Firebase configuration
-;
 
-  // Initialize Firebase
+
+
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 const db = getFirestore(app);
 
 const provider = new GoogleAuthProvider();
 
-// 3. Login Function (We call this when user clicks "Login")
+
 
 async function loginGoogle() {
     console.log("Button Clicked. Attempting Popup...");
     try {
         const result = await signInWithPopup(auth, provider);
 
-        // If we get here, IT WORKED!
-        console.log("SUCCESS! User:", result.user.displayName);
-        alert("Login Success! Welcome " + result.user.displayName);
+    
         window.location.href = "index.html";
 
     } catch (error) {
-        // If we get here, it actually failed.
+       
         console.error("Login Error:", error);
         alert("Error: " + error.message);
     }
@@ -46,7 +42,7 @@ async function loginGoogle() {
 
   const logoutBtn = document.querySelector(".logout");
 
-  // ONLY attach if button exists
+ 
   if (logoutBtn) {
       logoutBtn.addEventListener("click", () => {
           console.log("Logout Clicked");
@@ -54,19 +50,19 @@ async function loginGoogle() {
       });
   }
 
-// 4. Logout Function
+
 async function logoutUser() {
     try {
         await signOut(auth);
-        window.location.href = "login.html"; // Send them back to login
+        window.location.href = "login.html"; 
     } catch (error) {
         console.error("Logout Failed", error);
     }
 }
 
-// 5. Make these functions available to your HTML buttons
+
 window.loginGoogle = loginGoogle;
 window.logoutUser = logoutUser;
 
-// 6. Export tools for other files
-export { auth, db, onAuthStateChanged, collection, addDoc, query, where, onSnapshot ,getDocs , doc, updateDoc, deleteDoc};
+
+export { auth, db, onAuthStateChanged, collection, addDoc, query, where, setDoc,onSnapshot ,getDocs , getDoc , doc, updateDoc, deleteDoc};
