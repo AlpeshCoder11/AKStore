@@ -1,3 +1,5 @@
+import { doc } from "./firebase.js";
+
 export let allProducts = []; 
 async function fetchProducts() {
     try {
@@ -54,31 +56,40 @@ function selectElement(products) {
 const searchInput = document.querySelector('.search-input');
 const searchButton = document.querySelector('.search-button');
 
-function doSearch() {
+
+const sortInput = document.querySelector(".sortproduct");
+
+function applyFilters() {
+    let filteredData = [...allProducts];
+
+  
     const searchTerm = searchInput.value.toLowerCase();
-    
-    const filtered = allProducts.filter(product => {
-        
-        return product.title.toLowerCase().includes(searchTerm) || 
-               product.category.toLowerCase().includes(searchTerm);
-    });
-
-    displayProducts(filtered);
-}
-
-
-searchButton.addEventListener('click', doSearch);
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') doSearch();
-});
-select.addEventListener('change', () => {
-    const value = select.value;
-
-    if(value === ""){
-        displayProducts(allProducts);
-    } else {
-        const filtered = allProducts.filter(p => p.category === value);
-        displayProducts(filtered);
+    if (searchTerm) {
+        filteredData = filteredData.filter(product => 
+            product.title.toLowerCase().includes(searchTerm) || 
+            product.category.toLowerCase().includes(searchTerm)
+        );
     }
+
+    const categoryValue = select.value;
+    if (categoryValue !== "") {
+        filteredData = filteredData.filter(p => p.category === categoryValue);
+    }
+
+    const sortValue = sortInput.value;
+    if (sortValue === "highTolow") {
+        filteredData.sort((a, b) => b.price - a.price);
+    } else if (sortValue === "lowTohigh") {
+        filteredData.sort((a, b) => a.price - b.price);
+    }
+
+    displayProducts(filteredData);
+}
+sortInput.addEventListener("change", applyFilters);
+select.addEventListener('change', applyFilters);
+searchButton.addEventListener('click', applyFilters);
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') applyFilters();
 });
+
 fetchProducts();
