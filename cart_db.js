@@ -8,7 +8,19 @@ export function setUpdateDelegate(fn) {
 export let cartItems = [];
 onAuthStateChanged(auth, async (user) => {
     if (user) {
+       const fullName = user.displayName;
+        
+        
+        const firstName = fullName.split(" ")[0];
+
+        
+        const userBtn = document.querySelector(".userbtn");
+        if (userBtn) {
+            userBtn.innerHTML = `${firstName} &#8595;`;
+        }
         currentUser = user;
+
+
         await loadCartFromFirebase();
     }
 });

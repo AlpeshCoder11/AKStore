@@ -52,6 +52,30 @@ function selectElement(products) {
         }
     });
 }
+const userBtn = document.querySelector(".userbtn");
+const userBox = document.querySelector(".user");
+const logoutBtn = document.querySelector(".logout");
+
+if(userBtn && userBox){
+    userBtn.addEventListener("click", (e) => {
+        e.stopPropagation(); 
+        userBox.classList.toggle("useractive");
+        console.log("Dropdown toggled");
+    });
+}
+ 
+ if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+        console.log("Logout Clicked");
+        logoutUser();
+    });
+}
+window.addEventListener("click", () => {
+    if (userBox && userBox.classList.contains("useractive")) {
+        userBox.classList.remove("useractive");
+    }
+});
+
 
 const searchInput = document.querySelector('.search-input');
 const searchButton = document.querySelector('.search-button');

@@ -40,16 +40,6 @@ async function loginGoogle() {
     }
 }
 
-  const logoutBtn = document.querySelector(".logout");
-
- 
-  if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => {
-          console.log("Logout Clicked");
-          logoutUser();
-      });
-  }
-
 
 async function logoutUser() {
     try {
