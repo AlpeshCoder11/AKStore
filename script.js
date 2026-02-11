@@ -109,6 +109,9 @@ function applyFilters() {
 
     displayProducts(filteredData);
 }
+
+
+
 sortInput.addEventListener("change", applyFilters);
 select.addEventListener('change', applyFilters);
 searchButton.addEventListener('click', applyFilters);
