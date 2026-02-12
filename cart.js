@@ -48,6 +48,25 @@ window.removeFromCart = function(index) {
     saveCartToFirebase(cartItems); 
     displayCartProducts(); 
 }
+window.increaseQuantity = function(index) {
+    
+    cartItems[index].quantity = (cartItems[index].quantity || 1) + 1;
+    
+   
+    saveCartToFirebase(cartItems);
+    
+    displayCartProducts();
+};
+window.decreaseQuantity = function(index) {
+    
+    cartItems[index].quantity = (cartItems[index].quantity || 1) - 1;
+    
+   
+    saveCartToFirebase(cartItems);
+    
+    displayCartProducts();
+};
+
 
 function displayCartProducts() {
     const cartContainer = document.querySelector('.cartbar');
@@ -75,12 +94,16 @@ function displayCartProducts() {
                 <p class="cart-item-name">${product.title}</p>
               
                 
-            <p class="cart-item-price">$${product.price} x ${product.quantity || 1}</p>
+            <p class="cart-item-price">$${product.price} 
+            <button class="quantityIN" onclick="decreaseQuantity(${index})">-</button>
+            ${product.quantity || 1}
+            <button class="quantityIN" onclick="increaseQuantity(${index})">+</button></p>
             </div>
             <button class="remove-btn" onclick="removeFromCart(${index})">&times;</button>
         `;
         cartContainer.appendChild(item);
     });
+
 
 
 const total = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);    
@@ -93,9 +116,18 @@ const total = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity
     cartContainer.appendChild(footer);
     
     const hide = document.querySelector(".hide");
+    
     const checkModel = document.querySelector(".checkout-form");
     
     const checkoutBtn = footer.querySelector(".checkout-btn");
+
+
+
+window.onkeydown = (event) => {
+    if (event.key === "Escape") {
+        hide.classList.add("hide");
+    }
+};
     
     checkoutBtn.addEventListener("click", () => {
         
@@ -125,10 +157,10 @@ const total = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity
                             <span>Total Amount:</span>
                             <span>$${total.toFixed(2)}</span>
                         </div>
-                    </div>
-                    <button type="submit" class="popsubtn">Complete Purchase</button>
-   
-   
+                   
+         
+    </div>
+              <button type="" class="popsubtn">Complete Purchase</button>
    `
 
 
@@ -136,6 +168,8 @@ const total = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity
 
         if (hide) {
             hide.classList.remove("hide"); 
+            hide.classList.add("overlay1")
+            cartActive.classList.remove("active");
             console.log("Checkout modal opened");
         }
 
@@ -145,7 +179,9 @@ const total = cartItems.reduce((sum, item) => sum + (item.price * (item.quantity
 
     const closeBtn = document.querySelector(".closebtn");
 closeBtn.addEventListener("click",()=>{
+    hide.classList.remove("overlay1")
    hide.classList.add("hide"); 
+   
 });
 
 

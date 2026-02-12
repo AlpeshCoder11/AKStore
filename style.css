@@ -319,20 +319,23 @@
 }
 
 .hide{
-    display: none;
+   display: none;
+    
 }
 .overlay1{
+      display: flex;
     position: fixed;
     inset: 0;
     background: rgba(0,0,0,0.55);
-    display: flex;
+   
     align-items: center;
     justify-content: center;
+    z-index: 2000;
 }
 
 
 .popup{
-
+ 
     background: #ffffff;
     min-width: 55vmin;
     border-radius: 1rem;
@@ -341,7 +344,7 @@
             top: 50%;
             left: 50%;
             translate: -50% -50%;
-            
+      
 }
 
 
@@ -356,8 +359,9 @@
 }
 
 .popsubtn{
-    margin-top: 1.2rem;
-    width: 100%;
+    margin: .2rem;
+    margin-left: 0.9rem;
+    width: 90%;
     padding: 0.7rem;
     border-radius: 0.6rem;
     border: none;
@@ -372,7 +376,19 @@
 }
 
 
+.form-group{
+    padding: .5rem;
+    margin: 0.5rem;
+    
+}
 
+.form-group input{
+    height: 3.5em;
+    padding: .5rem;
+    width: 96%;
+    border-radius: 0.41rem;
+    border-color: #ccc;
+}
 
 
 @media (max-width: 768px) { 
