@@ -66,6 +66,25 @@ window.decreaseQuantity = function(index) {
     
     displayCartProducts();
 };
+window.orderSubmit = function(event) {
+    
+    if (event) event.preventDefault();
+    
+   
+   
+    const checkoutPopup = document.querySelector(".popup");
+    const successPopup = document.querySelector(".order-popup");
+    const doneBtn=document.querySelector(".btn-done");
+    if (checkoutPopup && successPopup) {
+        checkoutPopup.style.display = "none";
+        successPopup.style.display = "flex";
+        
+        
+        const icon = successPopup.querySelector(".icon-check");
+        if (icon) icon.style.display = "flex";
+    }
+ 
+}
 
 
 function displayCartProducts() {
@@ -160,7 +179,7 @@ window.onkeydown = (event) => {
                    
          
     </div>
-              <button type="" class="popsubtn">Complete Purchase</button>
+              <button type="button" class="popsubtn" onclick="orderSubmit(event)">Complete Purchase</button>
    `
 
 
@@ -176,6 +195,8 @@ window.onkeydown = (event) => {
 
 
     });
+    const successPopup = document.querySelector(".order-popup");
+    const doneBtn=document.querySelector(".btn-done");
 
     const closeBtn = document.querySelector(".closebtn");
 closeBtn.addEventListener("click",()=>{
@@ -184,7 +205,17 @@ closeBtn.addEventListener("click",()=>{
    
 });
 
+doneBtn.addEventListener("click", () => {
+    successPopup.style.display = "none";
+    
+    
+    const checkoutPopup = document.querySelector(".popup");
+    if (checkoutPopup) {
+        checkoutPopup.style.display = "block"; 
+    }
 
-
+    hide.classList.remove("overlay1");
+    hide.classList.add("hide"); 
+});
 }
 
