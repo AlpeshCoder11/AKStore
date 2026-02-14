@@ -23,6 +23,9 @@ onAuthStateChanged(auth, async (user) => {
 
         await loadCartFromFirebase();
     }
+    else{
+       // window.location.href = "login.html";
+    }
 });
 
 

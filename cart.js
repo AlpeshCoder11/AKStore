@@ -108,17 +108,17 @@ function displayCartProducts() {
         const item = document.createElement('div');
         item.classList.add('cart-item'); 
         item.innerHTML = `
-            <img src="${product.image}" alt="${product.title}">
-            <div class="cart-item-details">
-                <p class="cart-item-name">${product.title}</p>
-              
-                
-            <p class="cart-item-price">$${product.price} 
-            <button class="quantityIN" onclick="decreaseQuantity(${index})">-</button>
-            ${product.quantity || 1}
-            <button class="quantityIN" onclick="increaseQuantity(${index})">+</button></p>
-            </div>
-            <button class="remove-btn" onclick="removeFromCart(${index})">&times;</button>
+           <img src="${product.image}" alt="${product.title}">
+    <div class="cart-item-details">
+        <p class="cart-item-name">${product.title}</p>
+        <div class="cart-item-price">
+            <span>$${product.price}</span>
+            <button class="quantityIN" onclick="decreaseQuantity(${index})">−</button>
+            <span class="qty-count">${product.quantity || 1}</span>
+            <button class="quantityIN" onclick="increaseQuantity(${index})">+</button>
+        </div>
+    </div>
+    <button class="remove-btn" onclick="removeFromCart(${index})">&times;</button>
         `;
         cartContainer.appendChild(item);
     });
