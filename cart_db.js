@@ -24,7 +24,7 @@ onAuthStateChanged(auth, async (user) => {
         await loadCartFromFirebase();
     }
     else{
-       // window.location.href = "login.html";
+       window.location.href = "login.html";
     }
 });
 
@@ -58,3 +58,4 @@ export async function loadCartFromFirebase() {
         if (updateUIDelegate) updateUIDelegate();
     }
 }
+
