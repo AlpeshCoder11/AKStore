@@ -195,7 +195,23 @@
     padding: 2.5em 1.25em; 
     color: #666;
 }
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0.3rem 0;
+    font-size: 0.95rem;
+}
 
+.stars {
+    color: #f5a623;
+    letter-spacing: 2px;
+}
+
+.rating-count {
+    color: #007185;
+    font-size: 0.85rem;
+}
 
 .cart-item {
     display: flex;

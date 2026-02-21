@@ -26,11 +26,18 @@ function displayProducts(products) {
             <div class="des">
                 <p class="name">${product.title}</p>
                 <p class="price">$${product.price}</p>
+                 <div class="rating">
+            <span class="stars">${getStars(product.rating.rate)}</span>
+            <span class="rating-count">(${product.rating.count})</span>
+        </div>
                 <button class="add-to-cart-btn">Add to Cart</button>
             </div>
         `;
         productContainer.appendChild(card);
     });
+}
+function getStars(rate) {
+    return `<span style="color:#f5a623">${'★'.repeat(Math.round(rate))}${'☆'.repeat(5 - Math.round(rate))}</span> ${rate}`;
 }
 const select = document.querySelector('.search-select');
 function selectElement(products) {
@@ -111,7 +118,18 @@ function applyFilters() {
 }
 
 
+document.querySelectorAll(".list-item1 li").forEach(li => {
+    li.addEventListener("click", () => {
+        const text = li.textContent.trim();
 
+        if (text === "Best Sellers") {
+            const sorted = [...allProducts].sort((a, b) => b.rating.rate - a.rating.rate);
+            displayProducts(sorted);
+        } else if (text === "All") {
+            displayProducts(allProducts);
+        }
+    });
+});
 sortInput.addEventListener("change", applyFilters);
 select.addEventListener('change', applyFilters);
 searchButton.addEventListener('click', applyFilters);
