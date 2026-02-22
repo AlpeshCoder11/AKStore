@@ -7,30 +7,46 @@
    <link rel="stylesheet" href="login.css">
 </head>
 <body>
-<nav class="navbar">
-    <div class="navsec">
-        <a href="index.html">AKStore</a>
-        <a href="#aboutus">About us</a>
-        <a href="#contactus">Contact-us</a>
+<nav>
+    <div class="navbar">
+        <a href="#" class="logo">
+            <div class="logo-icon"><img src="logo.jpg" alt=""></div>
+           
+        </a>
+        <ul class="nav-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#howitwork">How It Works</a></li>
+            <li><a href="#preview">Categories</a></li>
+            <li><a href="#signin">Sign In</a></li>
+            <li><a href="#contactus">Contact</a></li>
+        </ul>
+        <button class="hamburger" id="hamburger">☰</button>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#features">Features</a>
+        <a href="#howitwork">How It Works</a>
+        <a href="#preview">Categories</a>
+        <a href="#signin">Sign In</a>
+        <a href="#contactus">Contact</a>
     </div>
 </nav>
-<main>
-    <div class="hero">
-        <div class="text1">Welecome to Akstore . buy the product and get diliver by 1 hour. with full saftey and security so always choose right buy from akstore
-        <button onclick="loginGoogle()">GoogleLogin</button>
+</nav>
+<section class="hero">
+    <div class="hero-content">
+        <div class="hero-text fade-in">
+            <h1>Shop <span class="highlight">Smarter.</span> Delivered Faster.</h1>
+            <p>Products across electronics, fashion, books and more — delivered to your door within hours. Secure checkout, real-time tracking, cloud-synced cart.</p>
+            <div class="hero-btns">
+                <a href="javascript:void(0)" onclick="loginGoogle()" class="btn-primary">Start Shopping Free</a>
+                <a href="#features" class="btn-outline">Learn More</a>
+            </div>
         </div>
-        
-        <div class="image"><img src="product.jpg" alt="" srcset=""></div>
-    </div>
-    <div class="about">
-        <div class="about1"></div>
-        <div class="about2"></div>
-        <div class="about3"></div>
-    </div>
-      
-</main>   
-
-
+</section>
+<script>
+    document.getElementById('hamburger').addEventListener('click', function () {
+        document.getElementById('mobileNav').classList.toggle('open');
+    });
+</script>
 <script type="module" src="firebase.js"></script>
 </body>
 </html>

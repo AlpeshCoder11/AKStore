@@ -1,104 +1,193 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-html {
-    font-size: 16px;   
-}
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #ffffff;
+            color: #111111;
+            overflow-x: hidden;
+        }
 
-body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0f2f5, #dfe6e9);
-}
+        /* NAV */
+        nav {
+            background: #131921;
+            border-bottom: 3px solid #ff9900;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 2rem;
+            max-width: 75rem;
+            margin: 0 auto;
+        }
 
-.navbar {
-    height: 3.6rem;
-    background: #131921;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 0.25rem 0.6rem rgba(0,0,0,0.2);
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
 
-.navsec {
-    display: flex;
-    justify-content: center;
-    gap: 2.5rem;
-    width: 100%;
-}
-
-.navbar a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.navbar a:hover {
-    color: #ff9900;
-    transform: scale(1.05);
-}
-
-
-.hero {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2.5rem;
-
-    margin: 2.5rem auto;
-    padding: 2rem;
-
-    max-width: 100%;
-
-    background: rgba(226, 204, 12, 0.877);  
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.1);
-}
+        .logo-icon img {
+            width: 6.4rem;
+            height: 2.4rem;
+            background: #ff9900;
+            border-radius: 0.4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          
+            color: #131921;
+        }
 
 
-.text1 {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    width: 50%;
-    font-size: 1.1rem;
-    line-height: 1.5;
-}
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #dddddd;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+        
+            padding: 0.3rem 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #ff9900;
+            border-bottom-color: #ff9900;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: #131921;
+            padding: 0.5rem 1.5rem 1rem;
+            gap: 0.8rem;
+            border-top: 1px solid #2a3545;
+        }
+
+        .mobile-nav a {
+            color: #dddddd;
+            text-decoration: none;
+            font-size: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #2a3545;
+        }
+
+        .mobile-nav.open { display: flex; }
 
 
-.text1 button {
-    width: 11rem;
-    padding: 0.75rem;
+    
+        .hero {
+            height: 88vh;
+            display: flex;
+            align-items: center;
+            padding: 4rem 2rem;
+            background: #ffffff;
+        }
 
-    border: none;
-    border-radius: 2rem;
+        .hero-content {
+            max-width: 75rem;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
 
-    background: #4285F4;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
+        .hero-text h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1;
+            letter-spacing: 2px;
+            margin-bottom: 1.5rem;
+            color: #111111;
+        }
 
-    transition: all 0.3s ease;
-}
+        .hero-text h1 .highlight {
+            color: #ff9900;
+            display: block;
+        }
 
-.text1 button:hover {
-    background: #2b6adf;
-    transform: translateY(-0.2rem);
-}
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #555555;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            max-width: 28rem;
+        }
 
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
 
-.image img {
-    width: 18rem;
-    border-radius: 1rem;
-    box-shadow: 0 0.4rem 1rem rgba(0,0,0,0.2);
-}
+        .btn-primary {
+            background: #ffd814;
+            color: #131921;
+            border: none;
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+            font-family: 'DM Sans', sans-serif;
+            display: inline-block;
+        }
+
+        .btn-primary:hover { background: #ff9900; transform: translateY(-2px); }
+
+        .btn-outline {
+            background: transparent;
+            color: #111111;
+            border: 2px solid #cccccc;
+            padding: 0.85rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: border-color 0.2s, color 0.2s;
+            font-family: 'DM Sans', sans-serif;
+            display: inline-block;
+        }
+
+        .btn-outline:hover { border-color: #ff9900; color: #ff9900; }
 
 @media(max-width: 48rem) {
+
+    .nav-links {
+        display: none;
+    }
+
+ 
+    .hamburger {
+        display: block; 
+    }
+
+ 
     .hero {
         flex-direction: column;
         text-align: center;
