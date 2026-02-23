@@ -7,7 +7,7 @@
             overflow-x: hidden;
         }
 
-        /* NAV */
+  
         nav {
             background: #131921;
             border-bottom: 3px solid #ff9900;
@@ -175,6 +175,73 @@
         }
 
         .btn-outline:hover { border-color: #ff9900; color: #ff9900; }
+        .hero-visual img{
+            border-radius: 1em;
+            width:90vh;
+            
+        }
+        .hero-visual {
+            margin-right: 3em;
+            padding-right: 3em; 
+        }
+  .stats { background: #131921; padding: 2rem; }
+
+        .stats-inner {
+            max-width: 75rem;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .stat-item { text-align: center; }
+
+        .stat-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.4rem;
+            color: #ff9900;
+        }
+
+        .stat-label { font-size: 0.85rem; color: #aaaaaa; margin-top: 0.2rem; }
+         
+              .section-wrap { max-width: 75rem; margin: 0 auto; padding: 4rem 2rem; }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+            color: #111111;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title span { color: #ff9900; }
+        .section-sub { text-align: center; color: #666666; margin-bottom: 2.5rem; font-size: 0.95rem; }
+        
+        
+        #preview { background: #f8f8f8; }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: 1rem;
+        }
+
+        .cat-card {
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 0.75rem;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .cat-card:hover { border-color: #ff9900; box-shadow: 0 4px 12px rgba(255,153,0,0.12); }
+        .cat-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; }
+        .cat-name { font-size: 0.85rem; font-weight: 600; color: #222222; }
+        .cat-count { font-size: 0.75rem; color: #888888; margin-top: 0.2rem; }
 
 @media(max-width: 48rem) {
 
