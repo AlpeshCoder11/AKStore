@@ -203,9 +203,17 @@
             color: #ff9900;
         }
 
-        .stat-label { font-size: 0.85rem; color: #aaaaaa; margin-top: 0.2rem; }
+        .stat-label { 
+            font-size: 0.85rem;
+             color: #aaaaaa; 
+            margin-top: 0.2rem;
+         }
          
-              .section-wrap { max-width: 75rem; margin: 0 auto; padding: 4rem 2rem; }
+              .section-wrap {
+                 max-width: 75rem; 
+                margin: 0 auto; 
+                padding: 4rem 2rem;
+             }
 
         .section-title {
             font-family: 'Bebas Neue', sans-serif;
@@ -238,10 +246,62 @@
             transition: border-color 0.2s, box-shadow 0.2s;
         }
 
-        .cat-card:hover { border-color: #ff9900; box-shadow: 0 4px 12px rgba(255,153,0,0.12); }
-        .cat-emoji { font-size: 2.2rem; margin-bottom: 0.6rem; }
-        .cat-name { font-size: 0.85rem; font-weight: 600; color: #222222; }
-        .cat-count { font-size: 0.75rem; color: #888888; margin-top: 0.2rem; }
+        .cat-card:hover {
+             border-color: #ff9900;
+             box-shadow: 0 4px 12px rgba(255,153,0,0.12);
+         }
+        .cat-emoji { 
+            font-size: 2.2rem;
+             margin-bottom: 0.6rem; 
+        }
+        .cat-name {
+             font-size: 0.85rem; 
+            font-weight: 600;
+             color: #222222;
+         }
+        .cat-count { 
+            font-size: 0.75rem; 
+            color: #888888;
+             margin-top: 0.2rem;
+         }
+
+
+      .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+            gap: 1.2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border: 1px solid #eeeeee;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+            transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+        }
+
+        .feature-card:hover { 
+            border-color: #ff9900; 
+            transform: translateY(-4px);
+             box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+             }
+        .feature-icon { 
+            font-size: 2.2rem;
+             margin-bottom: 0.8rem;
+         }
+        .feature-card h3 {
+             font-size: 1rem;
+             font-weight: 700;
+             color: #111111;
+             margin-bottom: 0.5rem;
+         }
+        .feature-card p { 
+            font-size: 0.85rem; 
+            color: #666666; 
+            line-height: 1.55;
+         }
+
 
 @media(max-width: 48rem) {
 
