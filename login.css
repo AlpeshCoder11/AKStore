@@ -301,6 +301,51 @@
             color: #666666; 
             line-height: 1.55;
          }
+          #signin { background: #ffffff; }
+
+        .signin-card {
+            background: #f8f8f8;
+            border: 1px solid #eeeeee;
+            border-radius: 1rem;
+            padding: 2.5rem;
+            max-width: 22rem;
+            margin: 0 auto;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .ak-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            color: #ff9900;
+            letter-spacing: 3px;
+            margin-bottom: 0.3rem;
+        }
+
+        .signin-card h2 { font-size: 1.3rem; font-weight: 700; color: #111111; margin-bottom: 0.5rem; }
+        .signin-card > p { color: #666666; font-size: 0.9rem; margin-bottom: 1.8rem; line-height: 1.5; }
+
+        .google-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+            width: 100%;
+            background: #ffd814;
+            color: #131921;
+            border: none;
+            padding: 0.85rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 0.4rem;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .google-btn:hover { background: #ff9900; transform: translateY(-2px); }
+        .login-note { margin-top: 1rem; font-size: 0.78rem; color: #888888; }
+
 
 
 @media(max-width: 48rem) {
